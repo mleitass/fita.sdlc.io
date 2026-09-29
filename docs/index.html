@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iesniegumu API līgums</title>
+  <!-- Swagger UI 5.33.0 (Apache-2.0, skatīt swagger-ui-LICENSE). Faili ir lokāli, bez CDN. -->
+  <link rel="stylesheet" href="swagger-ui.css">
+  <style>
+    body { margin: 0; background: #fff; }
+    .banner {
+      font: 14px/1.4 system-ui, sans-serif;
+      background: #fff4d6; color: #5a4300;
+      padding: 8px 16px; border-bottom: 1px solid #e8d49a;
+    }
+    .load-error {
+      font: 16px/1.5 system-ui, sans-serif;
+      max-width: 640px; margin: 40px auto; padding: 0 16px;
+    }
+    .load-error code { background: #f2f2f2; padding: 1px 4px; }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    Mācību līgums. Ezermalas novada pašvaldība un OMD reģistrs ir izdomāti. Visi dati ir sintētiski.
+  </div>
+  <div id="swagger-ui"></div>
+  <script src="swagger-ui-bundle.js"></script>
+  <script>
+    if (location.protocol === 'file:') {
+      document.getElementById('swagger-ui').innerHTML =
+        '<div class="load-error"><p><strong>Līgumu nevar ielādēt no <code>file://</code>.</strong></p>' +
+        '<p>Atver mapi <code>docs</code> terminālī un palaid <code>python -m http.server 8080</code>, ' +
+        'tad atver <code>http://localhost:8080</code>.</p></div>';
+    } else {
+      SwaggerUIBundle({
+        url: 'openapi.yaml',
+        dom_id: '#swagger-ui',
+        // Statiska lapa bez servera: "Try it out" izslēgts.
+        supportedSubmitMethods: [],
+        docExpansion: 'list',
+        defaultModelsExpandDepth: 1,
+        defaultModelExpandDepth: 3,
+        displayOperationId: false,
+        validatorUrl: null
+      });
+    }
+  </script>
+</body>
+</html>
